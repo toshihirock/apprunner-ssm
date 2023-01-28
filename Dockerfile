@@ -9,7 +9,7 @@ RUN dpkg -i /tmp/ssm/amazon-ssm-agent.deb
 
 # AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/cli/"awscliv2.zip"
-RUN unzip /tmp/cli/awscliv2.zip && /tmp/cli/aws/install
+RUN unzip /tmp/cli/awscliv2.zip -d /tmp/cli/ && /tmp/cli/aws/install
 
 COPY start.sh start.sh
 
