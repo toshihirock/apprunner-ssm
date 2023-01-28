@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-RUN mkdir /tmp/ssm
+RUN mkdir /tmp/ssm && mkdir /tmp/cli
 RUN apt-get update && apt-get install -y curl unzip
 
 # SSM
@@ -9,8 +9,7 @@ RUN dpkg -i /tmp/ssm/amazon-ssm-agent.deb
 
 # AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/cli/"awscliv2.zip"
-RUN unzip /tmp/cli/awscliv2.zip
-RUN /tmp/cli/aws/install
+RUN unzip /tmp/cli/awscliv2.zip && /tmp/cli/aws/install
 
 COPY start.sh start.sh
 
