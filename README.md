@@ -1,5 +1,6 @@
 # How to set up
 
++ Build and push for ECR
 + Execte "CreateActivation" API.
 
 ```
@@ -23,6 +24,14 @@ aws ssm create-activation \
         + SSM_AGENT_ID:${ActivationId}
         + SSM_AGENT_CODE:${ActivationCode}
         + AWS_DEFAULT_REGION:${REGION}
+    + Port
+        + 80
++ Check application log in the App Runner and find "mi-xxxx",
++ Execute "start-session" command,
+
+```
+aws ssm start-session --target mi-xxxxx
+```
 
 # Local test
 
@@ -31,5 +40,12 @@ docker run -d -e SSM_AGENT_ID=ABC -e SSM_AGENT_CODE=XYZ -e AWS_DEFAULT_REGION=ap
 ```
 
 # Troubleshooting
+
++ "Unable to start shell: failed to start pty since RunAs user xyz does not exist"
+    + [Why can’t I connect to my Amazon EC2 instance using Session Manager?](https://aws.amazon.com/premiumsupport/knowledge-center/ssm-session-manager-connect-fail)
+    + Also, please check below in the management console.
+        + Session Manager
+        + Preferences
+        + Disable "Enable Run As support for Linux instances" in specify Operating System user for sessions.
 
 
