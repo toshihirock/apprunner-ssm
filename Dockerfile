@@ -1,7 +1,7 @@
 FROM nginx:latest
 
 RUN mkdir /tmp/ssm && mkdir /tmp/cli
-RUN apt-get update && apt-get install -y curl unzip
+RUN apt-get update && apt-get install -y curl unzip less
 
 # SSM
 RUN curl https://s3.ap-northeast-1.amazonaws.com/amazon-ssm-ap-northeast-1/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
