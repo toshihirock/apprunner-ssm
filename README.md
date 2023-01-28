@@ -20,6 +20,6 @@ aws ssm create-activation \
 + Copy "ActivationId" and "ActivationCode"
 + Creaet AppRunner service
     + Environment variable
-        + ID:<ActivationId>
-        + CODE:<ActivationCode>
-        + REGION:<REGION>
+        + ID:${ActivationId}
+        + CODE:${ActivationCode}
+        + REGION:${REGION}
