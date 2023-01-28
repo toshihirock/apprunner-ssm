@@ -20,6 +20,16 @@ aws ssm create-activation \
 + Copy "ActivationId" and "ActivationCode"
 + Creaet AppRunner service
     + Environment variable
-        + ID:${ActivationId}
-        + CODE:${ActivationCode}
-        + REGION:${REGION}
+        + SSM_AGENT_ID:${ActivationId}
+        + SSM_AGENT_CODE:${ActivationCode}
+        + AWS_DEFAULT_REGION:${REGION}
+
+# Local test
+
+```
+docker run -d -e SSM_AGENT_ID=ABC -e SSM_AGENT_CODE=XYZ -e AWS_DEFAULT_REGION=ap-northeast-1 apprunner-ssm
+```
+
+# Troubleshooting
+
+
