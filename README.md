@@ -1,7 +1,7 @@
 # How to set up
 
 + Build and push for ECR
-+ Execte "CreateActivation" API.
++ Execute "CreateActivation" API.
 
 ```
 aws ssm create-activation \
@@ -26,11 +26,15 @@ aws ssm create-activation \
         + AWS_DEFAULT_REGION:${REGION}
     + Port
         + 80
+    + (Optional)Instance role
 + Check application log in the App Runner and find "mi-xxxx",
 + Execute "start-session" command,
 
 ```
 aws ssm start-session --target mi-xxxxx
+
+# List your S3 buckets.It will take some time for it to appear
+$aws s3 ls
 ```
 
 # Local test
